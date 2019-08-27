@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersLoginComponent } from './users-login/users-login.component';
 import {MatMenuModule,MatButtonModule,MatIconModule,MatCardModule,MatInputModule, MatSnackBarModule, MatTableModule, MatListModule,MatPaginatorModule,MatCheckboxModule} from '@angular/material';
+import {FormsModule} from '@angular/forms';
 import {WebcamModule} from 'ngx-webcam';
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {WebcamModule} from 'ngx-webcam';
     MatMenuModule,
     MatCardModule,
     MatButtonModule,
-    WebcamModule
+    WebcamModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

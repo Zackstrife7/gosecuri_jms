@@ -3,7 +3,13 @@
   <mat-card-title>
     <h2>Take a picture of you to login :</h2>
   </mat-card-title>
-  <webcam  width="300"></webcam>
-      <button mat-raised-button color="primary" trigger:Observable captureImageData=true >Take picture</button>
-      <canvas id="canvas"></canvas>
+  <webcam  width="300" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
+      <button mat-raised-button color="primary" (click)="triggerSnapshot();" >Take picture</button>
+      <div id="canvas" *ngIf="webcamImage">
+         
+            <img [src]="webcamImage.imageAsDataUrl"/>
+      </div>
 </mat-card>
+
+
+
