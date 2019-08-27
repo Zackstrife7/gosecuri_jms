@@ -3,14 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { UsersLoginComponent } from './users-login/users-login.component';
+import {MatMenuModule,MatButtonModule,MatIconModule,MatCardModule,MatInputModule, MatSnackBarModule, MatTableModule, MatListModule,MatPaginatorModule,MatCheckboxModule} from '@angular/material';
+import {WebcamModule} from 'ngx-webcam';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UsersLoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatMenuModule,
+    MatCardModule,
+    MatButtonModule,
+    WebcamModule
   ],
   providers: [],
   bootstrap: [AppComponent]
