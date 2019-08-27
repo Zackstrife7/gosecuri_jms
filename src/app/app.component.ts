@@ -21,6 +21,7 @@ export class AppComponent {
   public get triggerObservable(): Observable<void> {
     return this.trigger.asObservable();
   }
+  // take a snap of ur pic
   public triggerSnapshot(): void {
     this.trigger.next();
   }

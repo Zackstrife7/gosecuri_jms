@@ -1,15 +1,17 @@
-<mat-card>
-    <app-users-login></app-users-login>
-  <mat-card-title>
-    <h2>Take a picture of you to login :</h2>
-  </mat-card-title>
-  <webcam  width="300" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
-      <button mat-raised-button color="primary" (click)="triggerSnapshot();" >Take picture</button>
-      <div id="canvas" *ngIf="webcamImage">
-         
-            <img [src]="webcamImage.imageAsDataUrl"/>
-      </div>
+<mat-card *ngIf="!webcamImage" >
+  <div class="webcam">
+    <mat-card-title>
+      <h2>Take a picture of you to login :</h2>
+    </mat-card-title>
+    <webcam width="200" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
+  </div>
+  <div class="bouton">
+    <button mat-raised-button color="primary"  (click)="triggerSnapshot();">Take picture</button>
+    <button routerLinkActive="router-link-active" routerLink="users">click</button>
+   
+  </div>
+  <div id="canvas" *ngIf="webcamImage">
+      <img width="100" [src]="webcamImage.imageAsDataUrl" />
+  </div>
 </mat-card>
-
-
-
+<router-outlet></router-outlet>

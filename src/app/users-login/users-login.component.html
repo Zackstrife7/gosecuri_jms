@@ -1,2 +1,10 @@
-<p>users-login works!</p>
 
+    <div class="fields-containers">
+            <mat-selection-list >
+                  <mat-list-option *ngFor="let material of materials">
+                      {{material}}
+                  </mat-list-option>
+                  Material selected : {{materials.selectedOptions.selected.length}}
+            </mat-selection-list>
+       
+    </div>
