@@ -1,4 +1,4 @@
-<mat-card *ngIf="!webcamImage" >
+<mat-card *ngIf="!webcamImage">
   <div class="webcam">
     <mat-card-title>
       <h2>Take a picture of you to login :</h2>
@@ -6,12 +6,8 @@
     <webcam width="200" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
   </div>
   <div class="bouton">
-    <button mat-raised-button color="primary"  (click)="triggerSnapshot();">Take picture</button>
-    <button routerLinkActive="router-link-active" routerLink="users">click</button>
-   
-  </div>
-  <div id="canvas" *ngIf="webcamImage">
-      <img width="100" [src]="webcamImage.imageAsDataUrl" />
+    <button mat-raised-button color="primary" (click)="triggerSnapshot();">Take picture</button>
+    <button mat-raised-button color="secondary" routerLinkActive="router-link-active" routerLink="users">Choose your needed material</button>
   </div>
 </mat-card>
 <router-outlet></router-outlet>
