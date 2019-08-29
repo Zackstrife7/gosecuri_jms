@@ -1,4 +1,7 @@
 <div class="fields-containers">
+    <div *ngIf="webcamImage">
+        {{webcamImage}}
+    </div>
     <mat-selection-list class="select-list">
         <mat-list-option *ngFor="let material of materials">
             {{material.m_libelle}}
