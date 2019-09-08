@@ -1,11 +1,12 @@
-<div class="fields-containers">
-    <div *ngIf="webcamImage">
-        {{webcamImage}}
-    </div>
-    <mat-selection-list class="select-list">
-        <mat-list-option *ngFor="let material of materials">
-            {{material.m_libelle}}
-        </mat-list-option>
-    </mat-selection-list>
-
-</div>
+<mat-card>
+    <form action="" method="post">
+        <mat-selection-list class="select-list">
+            <mat-list-option *ngFor="let material of materials">
+                {{material.m_libelle}}
+            </mat-list-option>
+        </mat-selection-list>
+    </form>
+    <button matInput mat-raised-button color="secondary" routerLink=''  value="Return
+    take
+    another pic"routerLinkActive="router-link-active"></button>
+</mat-card>

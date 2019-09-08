@@ -3,9 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersLoginComponent } from './users-login/users-login.component';
-import {MatMenuModule,MatListModule,MatButtonModule,MatCardModule, MatInputModule,MatCheckboxModule,MatSelectModule} from '@angular/material';
+import {MatMenuModule,MatListModule,MatButtonModule,MatCardModule,MatInputModule,MatCheckboxModule,MatSelectModule,MatFormFieldModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import {WebcamModule} from 'ngx-webcam';
 // Firebase
 import { AngularFireModule } from '@angular/fire';
@@ -34,7 +33,8 @@ import { environment } from '../environments/environment';
     MatListModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
