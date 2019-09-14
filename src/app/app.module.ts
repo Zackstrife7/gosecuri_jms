@@ -13,10 +13,15 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+import { AgentProfileComponent } from './agent-profile/agent-profile.component';
+//Ng-Bootstrap
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
-    UsersLoginComponent
+    UsersLoginComponent,
+    AgentProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +39,10 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    MatInputModule
+    MatInputModule,
+    NgbModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,AgentProfileComponent,UsersLoginComponent]
 })
 export class AppModule { }

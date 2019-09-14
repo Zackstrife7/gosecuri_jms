@@ -11,5 +11,9 @@
   }
 
   webcam{
-      border: 5px solid #379EC1;
+    background-color: lightgray;
+    color:whitesmoke;
+    width: 18rem;
+    height: 500px;
+    
    }

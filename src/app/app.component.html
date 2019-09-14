@@ -1,21 +1,28 @@
-<div *ngIf="!webcamImage" class="webcam">
-    <mat-card-title>
-      <h2>Take a picture of you to login :</h2>
-    </mat-card-title>
-    <webcam width="200" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
-    <div class="bouton">
-      <button mat-raised-button color="primary"  (click)="triggerSnapshot();">Take picture</button>
+<div class="row">
+  <div *ngIf="!webcamImage" class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+          <webcam  [trigger]="triggerObservable" class="card-img-top" (imageCapture)="handleImage($event)">Take a Pic </webcam>
+
+          <h2 class="card-title">Take a picture of you to login</h2>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <button class="btn btn-primary" (click)="triggerSnapshot();">S'identifier</button>
+             
+
+      </div>
     </div>
-</div>
-<mat-card *ngIf="webcamImage">
-    <h2>Your snap:</h2>
-    <img mat-card-md-image [src]="webcamImage.imageAsDataUrl" />
-    <button mat-raised-button color="secondary" routerLink='users' routerLinkActive="router-link-active">Choose
+  </div>
+  <div *ngIf="webcamImage" class="col-sm-6">
+    <div class="card-body">
+      <h2>Your snap:</h2>
+      <img mat-card-md-image [src]="webcamImage.imageAsDataUrl" />
+      <button type="button" class="btn btn-primary" routerLink='users' routerLinkActive="router-link-active">Choose
         your
         materials here</button>
-</mat-card>
-<router-outlet></router-outlet>   
+  <button class="btn btn-success"routerLink='agents' routerLinkActive="router-link-active" >Voir Agents </button>
 
+    </div>
+  </div>
+</div>
 
-
-
+<!-- <router-outlet></router-outlet> -->

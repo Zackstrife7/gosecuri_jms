@@ -24,13 +24,10 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/angular-bootstrap-md/scss/bootstrap/bootstrap.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.css",
-              "node_modules/angular-bootstrap-md/sccs/mdb-free.scss",
-              "src/styles.css",
-              "src/assets/css/custom-style.css"
+              "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
@@ -93,9 +90,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+
+            ]
           }
         },
         "lint": {
