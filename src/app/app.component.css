@@ -2,18 +2,16 @@
     text-align: center;
    
   }
-  img {
-    max-width: 200px;
-    max-height: 200px;
-  }
-  .bouton{
+
+  button{
+    display: inline-block;
     float: right;
   }
 
-  webcam{
+  #webcam{
     background-color: lightgray;
     color:whitesmoke;
-    width: 18rem;
-    height: 500px;
+    width: 30rem;
+    
     
    }
