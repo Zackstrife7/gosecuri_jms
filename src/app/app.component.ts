@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {Subject} from 'rxjs';
 import {Observable} from 'rxjs';
 import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
 
 export class AppComponent {
   title = 'gosecuri-api';
-
+    // creation d'un form bind
+    // form: FormGroup;
    // latest snapshot
    public webcamImage: WebcamImage = null;
    // webcam snapshot trigger
@@ -31,5 +33,34 @@ export class AppComponent {
     console.info('received webcam image', webcamImage);
     this.webcamImage = webcamImage;
   }
+  
+
+
+    // constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private snackBar: MatSnackBar) {
+    //   this.form = formBuilder.group({
+    //     // creation de 2 contorle pour email et pw
+    //     email: ["", Validators.email],
+    //     password: ["", Validators.required]
+    //   })
+    // }
+    // login() {
+    //   if (this.form.valid) {
+    //     this.authService.login(this.form.value).subscribe(
+    //       loginSucess => {
+    //         this.router.navigate(['/users']),
+    //         this.snackBar.open("Authentification réussie", 'OK', {
+    //           duration: 5000,
+    //         })
+    //       }, loginError => {
+    //         this.snackBar.open("Authentification échouée", 'OK', {
+    //           duration: 5000,
+    //         })
+    //       }
+    //     )
+    //   }
+    // }
+
+  
+
 
 }

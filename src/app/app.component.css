@@ -3,15 +3,14 @@
    
   }
 
-  button{
-    display: inline-block;
-    float: right;
-  }
+
 
   #webcam{
     background-color: lightgray;
     color:whitesmoke;
     width: 30rem;
+    float: right;
+    width: 200px;
     
     
    }
