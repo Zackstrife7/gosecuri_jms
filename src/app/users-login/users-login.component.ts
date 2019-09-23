@@ -28,5 +28,29 @@ export class UsersLoginComponent implements OnInit {
       });
     });
   }
+// exemple de reset form pour meteriel et update du materiel  
+
+  // resetForm(form?: NgForm) {
+  //   if (form != null)
+  //     form.resetForm();
+  //   this.service.formData = {
+  //     id: null,
+  //     fullName: '',
+  //     position: '',
+  //     empCode: '',
+  //     mobile: '',
+  //   }
+  // }
+
+  // onSubmit(form: NgForm) {
+  //   let data = Object.assign({}, form.value);
+  //   delete data.id;
+  //   if (form.value.id == null)
+  //     this.firestore.collection('employees').add(data);
+  //   else
+  //     this.firestore.doc('employees/' + form.value.id).update(data);
+  //   this.resetForm(form);
+  //   this.toastr.success('Submitted successfully', 'EMP. Register');
+  // }
 
 }  
