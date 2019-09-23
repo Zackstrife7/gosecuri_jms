@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { WebcamImage } from 'ngx-webcam';
-import { MaterialService } from 'src/app/material.service';
-import { Material } from 'src/app/material.model';
+import { MaterialService } from 'src/service/material.service';
+import { Material } from 'src/model/material.model';
 
 
 
@@ -28,6 +28,7 @@ export class UsersLoginComponent implements OnInit {
       });
     });
   }
+  ta
 // exemple de reset form pour meteriel et update du materiel  
 
   // resetForm(form?: NgForm) {
