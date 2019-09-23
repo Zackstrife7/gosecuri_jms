@@ -1,11 +1,13 @@
-<div class="fields-containers">
-    <div *ngIf="webcamImage">
-        {{webcamImage}}
+<div class="col-sm-8">
+    <div class="card-body">
+        <form action="" method="post">
+            <mat-selection-list  class="select-list">
+                <mat-list-option *ngFor="let material of materials">
+                    {{material.m_libelle}}
+                </mat-list-option>
+                
+            </mat-selection-list>
+        </form>
     </div>
-    <mat-selection-list class="select-list">
-        <mat-list-option *ngFor="let material of materials">
-            {{material.m_libelle}}
-        </mat-list-option>
-    </mat-selection-list>
+</div>   
 
-</div>

@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+You can add global styles to this file, and also import other style files
 
 p,h3,h4,h5{
     color: black;
@@ -8,13 +8,4 @@ h1,h2 ,button{
     color: #379EC1;
     text-transform: capitalize;
 }
-.webcam{
-    border: 3px solid black;
-    /* width: 60%; */
-    /* height: 100%; */
-}
-.bouton{
-    position: absolute;
-    /* width: 40%; */
-    float: right;
-}
+

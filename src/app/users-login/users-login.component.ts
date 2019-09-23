@@ -14,7 +14,7 @@ import { Material } from 'src/app/material.model';
 export class UsersLoginComponent implements OnInit {
 
   materials: Material[];
-  @Input() webcamImage: AppComponent;
+  @Input() webcamImage: WebcamImage ;
   constructor(private materialService: MaterialService) { }
 
   ngOnInit() {

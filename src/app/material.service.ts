@@ -10,5 +10,5 @@ export class MaterialService {
 
   getMaterials() {
     return this.firestore.collection('materiel').snapshotChanges();
-}
+  }
 }
