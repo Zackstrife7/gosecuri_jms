@@ -1,4 +1,4 @@
-import { Agent } from './agent.model';
+import { Agent } from "./Agent";
 
 describe('Agent', () => {
   it('should create an instance', () => {

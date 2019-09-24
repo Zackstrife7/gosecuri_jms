@@ -3,14 +3,10 @@
    
   }
 
-
-
-  #webcam{
-    background-color: lightgray;
-    color:whitesmoke;
-    width: 30rem;
+  .bouton{
     float: right;
-    width: 200px;
-    
-    
-   }
+  }
+  #webcam{
+ 
+    width: 30%;
+  }

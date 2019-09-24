@@ -8,4 +8,8 @@ h1,h2 ,button{
     color: #379EC1;
     text-transform: capitalize;
 }
-
+.webcam{
+    
+    width: 60%;
+    /* height: 100%; */
+}
