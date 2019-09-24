@@ -3,10 +3,10 @@
    
   }
 
-  button{
-    display: inline-block;
-    float: right;
-  }
   .bouton{
     float: right;
+  }
+  #webcam{
+ 
+    width: 30%;
   }

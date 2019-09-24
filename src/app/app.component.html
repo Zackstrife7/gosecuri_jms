@@ -2,7 +2,8 @@
   <div *ngIf="!webcamImage" class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <webcam id="webcamsnap" [trigger]="triggerObservable" class="card-img-top" (imageCapture)="handleImage($event)">Take
+        <webcam id="webcamsnap" [trigger]="triggerObservable" class="card-img-top" (imageCapture)="handleImage($event)">
+          Take
           a Pic </webcam>
         <button class="btn btn-primary" (click)="triggerSnapshot();">S'identifier</button>
       </div>
@@ -11,16 +12,15 @@
   <div *ngIf="webcamImage" class="col-sm-6" id="snapwindows">
     <div class="card">
       <div class="card-body">
-        <!-- <button class="btn btn-success" routerLink='agents' routerLinkActive="router-link-active">Voir Agents </button> -->
-      <img id="webcam" class="card-img-right" [src]="webcamImage.imageAsDataUrl" />
-
         <a href="/" class="btn btn-primary">Revenir à l'acceuil</a>
-        
-       <app-users-login></app-users-login>
-       app-users-login
+        <img id="webcam" class="card-img-right" [src]="webcamImage.imageAsDataUrl" />
+
+        <app-users-login></app-users-login>
+
 
       </div>
-  
+
     </div>
 
   </div>
+</div>  
