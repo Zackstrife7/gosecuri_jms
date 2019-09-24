@@ -1,25 +1,26 @@
 <div class="row">
-  <div *ngIf="!webcamImage" class="col-sm-5">
+  <div *ngIf="!webcamImage" class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <webcam  id="webcam"  [trigger]="triggerObservable" class="card-img-top" (imageCapture)="handleImage($event)">Take a Pic </webcam>
-        <button  class="btn btn-primary" (click)="triggerSnapshot();">S'identifier</button>          
+        <webcam id="webcamsnap" [trigger]="triggerObservable" class="card-img-top" (imageCapture)="handleImage($event)">Take
+          a Pic </webcam>
+        <button class="btn btn-primary" (click)="triggerSnapshot();">S'identifier</button>
       </div>
     </div>
   </div>
-  <div *ngIf="webcamImage" class="col-sm-5">
-    <div class="card-body">
-      <h2>Your snap:</h2>
+  <div *ngIf="webcamImage" class="col-sm-6" id="snapwindows">
+    <div class="card">
+      <div class="card-body">
+        <!-- <button class="btn btn-success" routerLink='agents' routerLinkActive="router-link-active">Voir Agents </button> -->
       <img id="webcam" class="card-img-right" [src]="webcamImage.imageAsDataUrl" />
-      <button type="button" class="btn btn-primary" routerLink='users' routerLinkActive="router-link-active">Choose
-        your
-        materials here</button>
-  <button class="btn btn-success"routerLink='agents' routerLinkActive="router-link-active" >Voir Agents </button>
 
-  <a href="/" class="btn btn-primary">Revenir à l'acceuil</a>
-  <router-outlet></router-outlet>
+        <a href="/" class="btn btn-primary">Revenir à l'acceuil</a>
+        
+       <app-users-login></app-users-login>
+       app-users-login
 
-    </div>
-  </div>
+      </div>
   
-</div>
+    </div>
+
+  </div>

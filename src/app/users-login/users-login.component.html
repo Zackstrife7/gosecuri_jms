@@ -1,13 +1,12 @@
 <div class="col-sm-8">
     <div class="card-body">
-        <form action="" method="post">
-            <mat-selection-list  class="select-list">
+            <mat-selection-list  class="form-group">
                 <mat-list-option *ngFor="let material of materials">
                     {{material.m_libelle}}
-                </mat-list-option>
-                
+                    {{material.nbr_mat}}
+                </mat-list-option>               
+            <button  class="btn btn-primary"  (click)="takeOne()" >Emprunter</button> 
             </mat-selection-list>
-        </form>
     </div>
 </div>   
 
