@@ -14,6 +14,7 @@ import { Material } from 'src/model/material.model';
 export class UsersLoginComponent implements OnInit {
 
   materials: Material[];
+  material: MaterialService;
   @Input() webcamImage: WebcamImage ;
   constructor(private materialService: MaterialService) { }
 
@@ -28,7 +29,11 @@ export class UsersLoginComponent implements OnInit {
       });
     });
   }
-  ta
+  takeOne(){
+    // console.log(this.materialService.getOneMaterial(this.);
+    
+  }
+  
 // exemple de reset form pour meteriel et update du materiel  
 
   // resetForm(form?: NgForm) {
