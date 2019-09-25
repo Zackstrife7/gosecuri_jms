@@ -8,5 +8,10 @@
   }
   #webcam{
  
+    width: 40%;
+    float: right;
+  }
+  #webcam{
+ 
     width: 30%;
   }
