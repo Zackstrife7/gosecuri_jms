@@ -22,6 +22,11 @@ export class UsersLoginComponent implements OnInit {
     public firebaseService: FirebaseService
     ) { }
 
+  constructor(
+    private materialService: MaterialService,
+    public firebaseService: FirebaseService,
+    private route: ActivatedRoute
+    ) { }
   ngOnInit() {
     this.materialService.getMaterials().subscribe(actionArray => {
       this.materials = actionArray.map(item => {
