@@ -20,14 +20,12 @@ export class UsersLoginComponent implements OnInit {
   materials: Material[];
   @Input() webcamImage: WebcamImage;
   material: MaterialService;
-  @Input() webcamImage: WebcamImage ;
-  constructor(private materialService: MaterialService) { }
-
   constructor(
     private materialService: MaterialService,
     public firebaseService: FirebaseService,
     private route: ActivatedRoute
     ) { }
+
   ngOnInit() {
     this.firebaseService.getMaterials().subscribe(data => {
       // tslint:disable-next-line: no-unused-expression
