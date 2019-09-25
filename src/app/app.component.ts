@@ -12,8 +12,6 @@ import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
 
 export class AppComponent {
   title = 'gosecuri-api';
-    // creation d'un form bind
-    // form: FormGroup;
    // latest snapshot
    public webcamImage: WebcamImage = null;
    // webcam snapshot trigger

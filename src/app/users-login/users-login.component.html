@@ -1,9 +1,12 @@
-<form [formGroup]="formulaire">
-    <select  name="chossedOne" class="form-group">
-        <option *ngFor="let material of materials" >
+<div *ngFor="let material of materials" class="checkbox">
+    <div *ngIf="material.nbr_mat > 0" class="select-list">
+        <label><input type="checkbox" (change)='updateMaterialNumber($event,material)'>
             {{material.m_libelle}}
-            {{material.nbr_mat}}
-        </option>
-    </select>
-    <button type="button" class="btn btn-primary" (click)='takeOne()'>Emprunter </button>
-</form>
+            {{material.nbr_mat}}</label>
+    </div>
+    <div *ngIf="material.nbr_mat <= 0 " class="select-list">
+        <label><input type="checkbox" disabled (change)='updateMaterialNumber($event,material)'>
+            {{material.m_libelle}}
+            {{material.nbr_mat}}</label>
+    </div>
+</div>
