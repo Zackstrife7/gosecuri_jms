@@ -1,12 +1,9 @@
-<div class="col-sm-8">
-    <div class="card-body">
-            <mat-selection-list  class="form-group">
-                <mat-list-option *ngFor="let material of materials">
-                    {{material.m_libelle}}
-                    {{material.nbr_mat}}
-                </mat-list-option>               
-            <button  class="btn btn-primary"  (click)="takeOne()" >Emprunter</button> 
-            </mat-selection-list>
-    </div>
-</div>   
-
+<form [formGroup]="formulaire">
+    <select  name="chossedOne" class="form-group">
+        <option *ngFor="let material of materials" >
+            {{material.m_libelle}}
+            {{material.nbr_mat}}
+        </option>
+    </select>
+    <button type="button" class="btn btn-primary" (click)='takeOne()'>Emprunter </button>
+</form>

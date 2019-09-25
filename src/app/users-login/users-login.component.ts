@@ -1,9 +1,11 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, ViewChild } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { WebcamImage } from 'ngx-webcam';
 import { MaterialService } from 'src/service/material.service';
 import { Material } from 'src/model/material.model';
-
+import { FirebaseService } from 'src/service/firebase.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators, FormControl, NgForm } from '@angular/forms';
 
 
 @Component({
@@ -12,13 +14,22 @@ import { Material } from 'src/model/material.model';
   styleUrls: ['./users-login.component.css']
 })
 export class UsersLoginComponent implements OnInit {
+   f: NgForm;
+
 
   materials: Material[];
+  @Input() webcamImage: WebcamImage;
+  material: MaterialService;
   @Input() webcamImage: WebcamImage ;
   constructor(private materialService: MaterialService) { }
 
+  constructor(
+    private materialService: MaterialService,
+    public firebaseService: FirebaseService,
+    private route: ActivatedRoute
+    ) { }
   ngOnInit() {
-    this.materialService.getMaterials().subscribe(data => {
+    this.firebaseService.getMaterials().subscribe(data => {
       // tslint:disable-next-line: no-unused-expression
       this.materials = data.map(e => {
         return {
@@ -28,30 +39,14 @@ export class UsersLoginComponent implements OnInit {
       });
     });
   }
-  ta
-// exemple de reset form pour meteriel et update du materiel  
-
-  // resetForm(form?: NgForm) {
-  //   if (form != null)
-  //     form.resetForm();
-  //   this.service.formData = {
-  //     id: null,
-  //     fullName: '',
-  //     position: '',
-  //     empCode: '',
-  //     mobile: '',
-  //   }
+  onSubmit(f: NgForm) {
+    console.log(f.value);
+  
+  }
+  // takeOne() {
+  //   console.log( this.firebaseService.getOneMat(this.materials.length));
+  //   // this.f.controls.state.setValue(this.options[0]);
   // }
 
-  // onSubmit(form: NgForm) {
-  //   let data = Object.assign({}, form.value);
-  //   delete data.id;
-  //   if (form.value.id == null)
-  //     this.firestore.collection('employees').add(data);
-  //   else
-  //     this.firestore.doc('employees/' + form.value.id).update(data);
-  //   this.resetForm(form);
-  //   this.toastr.success('Submitted successfully', 'EMP. Register');
-  // }
 
-}  
+}
