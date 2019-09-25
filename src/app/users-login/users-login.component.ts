@@ -19,11 +19,6 @@ export class UsersLoginComponent implements OnInit {
 
   constructor(
     private materialService: MaterialService,
-    public firebaseService: FirebaseService
-    ) { }
-
-  constructor(
-    private materialService: MaterialService,
     public firebaseService: FirebaseService,
     private route: ActivatedRoute
     ) { }
