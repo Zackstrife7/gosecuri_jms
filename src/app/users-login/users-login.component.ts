@@ -6,6 +6,7 @@ import { Material } from 'src/model/material.model';
 import { FirebaseService } from 'src/service/firebase.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl, NgForm } from '@angular/forms';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 
 @Component({
@@ -15,13 +16,12 @@ import { FormBuilder, FormGroup, Validators, FormControl, NgForm } from '@angula
 })
 export class UsersLoginComponent implements OnInit {
    f: NgForm;
-
+   // accés à la database
+  db: AngularFireDatabase;
 
   materials: Material[];
-  @Input() webcamImage: WebcamImage;
-  material: MaterialService;
+
   @Input() webcamImage: WebcamImage ;
-  constructor(private materialService: MaterialService) { }
 
   constructor(
     private materialService: MaterialService,
@@ -29,7 +29,7 @@ export class UsersLoginComponent implements OnInit {
     private route: ActivatedRoute
     ) { }
   ngOnInit() {
-    this.firebaseService.getMaterials().subscribe(data => {
+    this.materialService.getMaterials().subscribe(data => {
       // tslint:disable-next-line: no-unused-expression
       this.materials = data.map(e => {
         return {
@@ -43,10 +43,11 @@ export class UsersLoginComponent implements OnInit {
     console.log(f.value);
   
   }
-  // takeOne() {
-  //   console.log( this.firebaseService.getOneMat(this.materials.length));
-  //   // this.f.controls.state.setValue(this.options[0]);
-  // }
+  takeOne(matref: Material) {
+  
+    
+    // this.f.controls.state.setValue(this.options[0]);
+  }
 
 
 }

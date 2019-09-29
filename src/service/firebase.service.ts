@@ -10,14 +10,6 @@ export class FirebaseService {
 
   constructor(public afs: AngularFirestore) { }
 
-  getMaterials() {
-    return this.afs.collection('materiel').snapshotChanges();
-  }
-  getOneMat(matKey){
-    return this.afs.collection('materiel').doc(matKey).snapshotChanges();
-  }
-  updateMaterial(matKey, value){
-    return this.afs.collection('materiel').doc(matKey).set(value.m_id);
-  }
+
 
 }
