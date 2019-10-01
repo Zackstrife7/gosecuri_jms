@@ -5,8 +5,7 @@ import { MaterialService } from 'src/service/material.service';
 import { Material } from 'src/model/material.model';
 import { FirebaseService } from 'src/service/firebase.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, FormControl, NgForm } from '@angular/forms';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -15,13 +14,8 @@ import { AngularFireDatabase } from '@angular/fire/database';
   styleUrls: ['./users-login.component.css']
 })
 export class UsersLoginComponent implements OnInit {
-   f: NgForm;
-   // accés à la database
-  db: AngularFireDatabase;
-
-  materials: Material[];
-
-  @Input() webcamImage: WebcamImage ;
+   materials: Material[];
+   @Input() webcamImage: WebcamImage;
 
   constructor(
     private materialService: MaterialService,
@@ -29,25 +23,25 @@ export class UsersLoginComponent implements OnInit {
     private route: ActivatedRoute
     ) { }
   ngOnInit() {
-    this.materialService.getMaterials().subscribe(data => {
-      // tslint:disable-next-line: no-unused-expression
-      this.materials = data.map(e => {
+    this.materialService.getMaterials().subscribe(actionArray => {
+      this.materials = actionArray.map(item => {
         return {
-          id: e.payload.doc.id,
-          ...e.payload.doc.data()
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
         } as Material;
       });
     });
   }
-  onSubmit(f: NgForm) {
-    console.log(f.value);
-  
-  }
-  takeOne(matref: Material) {
-  
-    
-    // this.f.controls.state.setValue(this.options[0]);
-  }
+  // every  checked material will decremante the number of this one
+  updateMaterialNumber(event, materiel) {
+    materiel.checked = event.srcElement.checked;
 
+    if(!materiel.checked){
+      this.materialService.resetMaterial(materiel.m_id, materiel);
+    }
+    if(materiel.checked){
+      this.materialService.updateOneMaterial(materiel.m_id, materiel);
+    }
+  }
 
 }

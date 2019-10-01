@@ -2,26 +2,29 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Material } from 'src/model/material.model';
 import { identifierModuleUrl } from '@angular/compiler';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
 @Injectable({
   providedIn: 'root'
 })
 export class MaterialService {
+  formData: Material;
   private dbPath = '/materiel';
+  materielsRef: AngularFireList<Material> = null;
 
-  materialsRef: AngularFireList<Material> = null;
+  constructor(public afs: AngularFirestore,private db: AngularFireDatabase) {
+    this.materielsRef = db.list(this.dbPath);
+   }
 
-  constructor(private firestore: AngularFirestore, private db: AngularFireDatabase) { 
-    this.materialsRef = db.list(this.dbPath);
+  updateOneMaterial(matID: string, mat: any): Promise<void> {
+    return this.afs.doc('materiel/' + matID).update(mat.nbr_mat -= 1);
   }
 
   getMaterials() {
-    return this.firestore.collection('materiel').snapshotChanges();
+    return this.afs.collection('materiel').snapshotChanges();
   }
-  getOneMaterial(mId :Number){
-    return this.firestore.collection("materiel").doc('materiel.mId');
+  resetMaterial(matID: string, mat: any): Promise<void>{
+    return this.afs.doc('materiel/' + matID).update(mat.nbr_mat += 1);
   }
-  updateOneMaterial(key: string, value: any): Promise<void>{
-    return this.materialsRef.update(key, value);
-  }
+
+ 
 }
