@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output, ViewChild } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { WebcamImage } from 'ngx-webcam';
-import { MaterialService } from 'src/service/material.service';
-import { Material } from 'src/model/material.model';
-import { FirebaseService } from 'src/service/firebase.service';
+import { MaterialService } from 'src/app/service/material.service';
+import { Material } from 'src/app/model/material.model';
+import { FirebaseService } from 'src/app/service/firebase.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 

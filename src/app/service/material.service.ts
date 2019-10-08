@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Material } from 'src/model/material.model';
+import { Material } from 'src/app/model/material.model';
 import { identifierModuleUrl } from '@angular/compiler';
 import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
 @Injectable({
   providedIn: 'root'
 })
 export class MaterialService {
-  formData: Material;
+
   private dbPath = '/materiel';
+
   materielsRef: AngularFireList<Material> = null;
 
   constructor(public afs: AngularFirestore,private db: AngularFireDatabase) {
