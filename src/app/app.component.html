@@ -5,6 +5,9 @@
         <webcam id="webcamsnap" [trigger]="triggerObservable" class="card-img-top" (imageCapture)="handleImage($event)">Prenez-vous en photo pour vous identifier</webcam>
         <button class="btn btn-primary" (click)="triggerSnapshot();">Valider</button>
       </div>
+      <ul *ngFor="let photo of photos" class="card-body">
+            <li>{{photo.BobLeBricoleur}}</li>
+      </ul>
     </div>
   </div>
   <div *ngIf="webcamImage" class="col-sm-8" id="snapwindows">

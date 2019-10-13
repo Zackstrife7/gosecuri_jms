@@ -3,9 +3,9 @@ import { AppComponent } from '../app.component';
 import { WebcamImage } from 'ngx-webcam';
 import { MaterialService } from 'src/app/service/material.service';
 import { Material } from 'src/app/model/material.model';
-import { FirebaseService } from 'src/app/service/firebase.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { Photo } from '../model/photo.model';
 
 
 @Component({
@@ -15,11 +15,11 @@ import { map } from 'rxjs/operators';
 })
 export class UsersLoginComponent implements OnInit {
    materials: Material[];
+
    @Input() webcamImage: WebcamImage;
 
   constructor(
     private materialService: MaterialService,
-    public firebaseService: FirebaseService,
     private route: ActivatedRoute
     ) { }
   ngOnInit() {
