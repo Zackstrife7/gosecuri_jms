@@ -6,7 +6,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class PhotoService {
 
-
   constructor(private firestore: AngularFirestore) {
 
   }

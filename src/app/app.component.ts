@@ -34,13 +34,10 @@ export class AppComponent implements OnInit {
   // webcam snapshot trigger
   private trigger: Subject<void> = new Subject<void>();
 
-  private errmessage :any [
-    {
-      type: string,
-      message: string
-    }
-  ];
-
+  private errmessage: {
+    type: string;
+    message: string;
+  };
   // function
   constructor(private photoService: PhotoService, private router: Router
   ) { }
@@ -68,19 +65,17 @@ export class AppComponent implements OnInit {
     this.webcamImage = webcamImage;
   }
   /**
-   * displayErrorMess
+   * Verify identity to log in or in other case display error message
    */
   public displayErrorMess() {
     if (this.webcamImage) {
-      this.errmessage = this.errors[0].message;
+      this.errmessage.type = this.errors[0].message;
+      this.errmessage.message = this.errors[0].message;
     } else {
-      this.errmessage += this.errors[0].type;
-      this.errmessage = this.errors[1].message;
+      this.errmessage.type += this.errors[0].type;
+      this.errmessage.message = this.errors[1].message;
     }
   }
-  /**
-   * Verify identity to log in or in other case display error message
-   */
 
 
 

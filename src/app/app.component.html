@@ -1,14 +1,22 @@
 <div class="row">
-  <div  class="col-sm-8">
+  <div *ngIf="!webcamImage" class="col-sm-8">
     <div class="card">
       <div class="card-body">
-      
-            <ngb-alert (click)="displayErrorMess();" >{{errmessage}}</ngb-alert>
-
-          <webcam id="webcamsnap" [trigger]="triggerObservable" class="card-img-top" (imageCapture)="handleImage($event)">Prenez-vous en photo pour vous identifier</webcam>
-        </div>
+        <webcam id="webcamsnap" [trigger]="triggerObservable" class="card-img-top" (imageCapture)="handleImage($event)">Prenez-vous en photo pour vous identifier</webcam>
         <button class="btn btn-primary" (click)="triggerSnapshot();">Valider</button>
+      </div>
+    </div>
+   
+  </div>
+  <div *ngIf="webcamImage" class="col-sm-8" id="snapwindows">
+    <div class="card">
+      <div class="card-body">
+        <a href="/" class="btn btn-primary">Revenir à l'acceuil</a>
+      <img id="webcam" class="card-img-right" [src]="webcamImage.imageAsDataUrl" />   
+      <app-users-login></app-users-login>
+    </div>
 
     </div>
+
   </div>
 </div>  
