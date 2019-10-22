@@ -36,10 +36,10 @@ export class UsersLoginComponent implements OnInit {
   updateMaterialNumber(event, materiel) {
     materiel.checked = event.srcElement.checked;
 
-    if(!materiel.checked){
+    if (!materiel.checked) {
       this.materialService.resetMaterial(materiel.m_id, materiel);
     }
-    if(materiel.checked){
+    if (materiel.checked) {
       this.materialService.updateOneMaterial(materiel.m_id, materiel);
     }
   }
