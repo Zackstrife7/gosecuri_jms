@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, Output, ViewChild } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { WebcamImage } from 'ngx-webcam';
-import { MaterialService } from 'src/service/material.service';
-import { Material } from 'src/model/material.model';
-import { FirebaseService } from 'src/service/firebase.service';
+import { MaterialService } from 'src/app/service/material.service';
+import { Material } from 'src/app/model/material.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { Photo } from '../model/photo.model';
 
 
 @Component({
@@ -15,11 +15,11 @@ import { map } from 'rxjs/operators';
 })
 export class UsersLoginComponent implements OnInit {
    materials: Material[];
+
    @Input() webcamImage: WebcamImage;
 
   constructor(
     private materialService: MaterialService,
-    public firebaseService: FirebaseService,
     private route: ActivatedRoute
     ) { }
   ngOnInit() {
@@ -36,10 +36,10 @@ export class UsersLoginComponent implements OnInit {
   updateMaterialNumber(event, materiel) {
     materiel.checked = event.srcElement.checked;
 
-    if(!materiel.checked){
+    if (!materiel.checked) {
       this.materialService.resetMaterial(materiel.m_id, materiel);
     }
-    if(materiel.checked){
+    if (materiel.checked) {
       this.materialService.updateOneMaterial(materiel.m_id, materiel);
     }
   }

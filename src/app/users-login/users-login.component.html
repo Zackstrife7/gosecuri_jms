@@ -1,12 +1,22 @@
-<div *ngFor="let material of materials" class="checkbox">
-    <div *ngIf="material.nbr_mat > 0" class="select-list">
-        <label><input type="checkbox" (change)='updateMaterialNumber($event,material)'>
-            {{material.m_libelle}}
-            {{material.nbr_mat}}</label>
+<div *ngIf="webcamImage" class="col-sm-8" id="snapwindows">
+    <div class="card">
+      <div class="card-body">
+        <a href="/" class="btn btn-primary">Revenir à l'acceuil</a>
+        <img id="webcam" class="card-img-right" [src]="webcamImage.imageAsDataUrl" />      
+        <div *ngFor="let material of materials" class="checkbox">
+            <div *ngIf="material.nbr_mat > 0" class="select-list">
+                <label><input type="checkbox" (change)='updateMaterialNumber($event,material)'>
+                    {{material.m_libelle}}
+                    {{material.nbr_mat}}</label>
+            </div>
+            <div *ngIf="material.nbr_mat <= 0" class="checkbox">
+                <label><input type="checkbox" disabled (change)='updateMaterialNumber($event,material)'>
+                    {{material.m_libelle}}
+                    {{material.nbr_mat}}
+                </label>
+            </div>
+        </div>      
+
     </div>
-    <div *ngIf="material.nbr_mat <= 0 " class="select-list">
-        <label><input type="checkbox" disabled (change)='updateMaterialNumber($event,material)'>
-            {{material.m_libelle}}
-            {{material.nbr_mat}}</label>
-    </div>
-</div>
+
+  </div>

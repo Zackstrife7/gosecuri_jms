@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Agent } from "src/app/Agent";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AgentService {
+export class PhotoService {
+
 
   constructor(private firestore: AngularFirestore) {
 
-   }
-   getAgents(){
-     return this.firestore.collection('agents').snapshotChanges();
-   }
+  }
+  getPhotos(){
+    return this.firestore.collection('photos').snapshotChanges();
+  }
 }

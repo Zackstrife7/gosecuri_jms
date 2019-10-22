@@ -21,7 +21,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
-    UsersLoginComponent
+    UsersLoginComponent 
   ],
   imports: [
     BrowserModule,
