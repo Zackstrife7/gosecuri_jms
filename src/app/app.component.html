@@ -1,12 +1,14 @@
 <div class="row">
-  <div  class="col-sm-8">
+  <div *ngIf="!webcamImage" class="col-sm-8">
     <div class="card">
       <div class="card-body">
+
           <webcam id="webcamsnap" [trigger]="triggerObservable" class="card-img-top" (imageCapture)="handleImage($event)">Prenez-vous en photo pour vous identifier</webcam>
         </div>
         <button class="btn btn-primary" routerLink="/users"  (click)="triggerSnapshot();">Valider</button>
-      
+
     </div>
+
   </div>
 </div>  
 <router-outlet></router-outlet>
