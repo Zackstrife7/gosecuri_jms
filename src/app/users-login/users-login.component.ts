@@ -23,14 +23,14 @@ export class UsersLoginComponent implements OnInit {
     private route: ActivatedRoute
     ) { }
   ngOnInit() {
-    this.materialService.getMaterials().subscribe(actionArray => {
-      this.materials = actionArray.map(item => {
-        return {
-          id: item.payload.doc.id,
-          ...item.payload.doc.data()
-        } as Material;
-      });
-    });
+    // this.materialService.getMaterials().subscribe(actionArray => {
+    //   this.materials = actionArray.map(item => {
+    //     return {
+    //       id: item.payload.doc.id,
+    //       ...item.payload.doc.data()
+    //     } as Material;
+    //   });
+    // });
   }
   // every  checked material will decremante the number of this one
   updateMaterialNumber(event, materiel) {

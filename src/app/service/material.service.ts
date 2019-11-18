@@ -27,5 +27,6 @@ export class MaterialService {
     return this.afs.doc('materiel/' + matID).update(mat.nbr_mat += 1);
   }
 
- 
 }
+
+
