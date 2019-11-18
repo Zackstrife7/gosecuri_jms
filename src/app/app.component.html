@@ -2,13 +2,11 @@
   <div  class="col-sm-8">
     <div class="card">
       <div class="card-body">
-      
-            <ngb-alert (click)="displayErrorMess();" >{{errmessage}}</ngb-alert>
-
           <webcam id="webcamsnap" [trigger]="triggerObservable" class="card-img-top" (imageCapture)="handleImage($event)">Prenez-vous en photo pour vous identifier</webcam>
         </div>
-        <button class="btn btn-primary" (click)="triggerSnapshot();">Valider</button>
-
+        <button class="btn btn-primary" routerLink="/users"  (click)="triggerSnapshot();">Valider</button>
+      
     </div>
   </div>
 </div>  
+<router-outlet></router-outlet>

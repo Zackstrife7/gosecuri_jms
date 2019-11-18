@@ -10,9 +10,6 @@ const routes: Routes = [
     path: 'users',
     component: UsersLoginComponent
   }
-  //   path:"agents",
-  //   component: AgentProfileComponent
-  // }
 ];
 
 @NgModule({

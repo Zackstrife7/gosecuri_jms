@@ -18,28 +18,11 @@ import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router'
 export class AppComponent implements OnInit {
   title = 'gosecuri-api';
 
-
-  errors: any[] = [{
-    type: 'success',
-    message: 'La photo correspond',
-  }, {
-    type: 'danger',
-    message: 'La photo ne correspond pas',
-  }
-  ];
-
   photos: Photo[];
   // latest snapshot
   public webcamImage: WebcamImage = null;
   // webcam snapshot trigger
   private trigger: Subject<void> = new Subject<void>();
-
-  private errmessage :any [
-    {
-      type: string,
-      message: string
-    }
-  ];
 
   // function
   constructor(private photoService: PhotoService, private router: Router
@@ -67,20 +50,7 @@ export class AppComponent implements OnInit {
     console.info('received webcam image', webcamImage);
     this.webcamImage = webcamImage;
   }
-  /**
-   * displayErrorMess
-   */
-  public displayErrorMess() {
-    if (this.webcamImage) {
-      this.errmessage = this.errors[0].message;
-    } else {
-      this.errmessage += this.errors[0].type;
-      this.errmessage = this.errors[1].message;
-    }
-  }
-  /**
-   * Verify identity to log in or in other case display error message
-   */
+
 
 
 
