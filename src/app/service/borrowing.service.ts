@@ -1,27 +1,34 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import {MaterialService} from 'src/app/service/material.service';
-import { from } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { FirestoreService } from './firestore.service';
+import { MaterialService } from './material.service';
+import { Material } from '../model/material.model';
+
 @Injectable({
   providedIn: 'root'
 })
 export class BorrowingService {
 
-  constructor(public afs: AngularFirestore, public matService : MaterialService) { }
+  constructor(private firestore: FirestoreService, private materialService: MaterialService) { }
 
-  getBorrows() {
-    return this.afs.collection('emprunter').get();
+  getBorrows(): Observable<any> {
+    return this.firestore.readCollection('emprunter')
   }
 
-  getAvailableMaterials() {
-    this.matService.getMaterials().subscribe(materials => {
-
-      this.getBorrows().subscribe(borrows => {
-        borrows.forEach(borrow => {
-          borrow.data().agentId.get().then(agent => console.log(agent.data()));
-          borrow.data().matId.get().then(material => console.log(material.data()));
-        });
-      });
-    });
+  getAvailableMaterials(): Observable<Material[]> {
+    return new Observable(subscriber => {
+      this.materialService.getMaterials().subscribe(materials => {
+        this.getBorrows().subscribe(borrows => {
+          const borrowsIds = borrows.map(b => b.matId.id)
+          const availableMaterials = materials.map(m => ({
+            ...m,
+            nbAvailable: m.nbr_mat - borrowsIds.filter(b => b === m.id).length
+          }))
+          subscriber.next(availableMaterials)
+          subscriber.complete()
+        })
+      })
+    })
   }
 }

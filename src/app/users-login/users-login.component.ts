@@ -22,23 +22,14 @@ export class UsersLoginComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.materialService.getMaterials().subscribe(actionArray => {
-      this.materials = actionArray.map(item => ({
-          id: item.payload.doc.id,
-          ...item.payload.doc.data()
-        }) as Material);
-    });
-    this.borrowingService.getAvailableMaterials();
+    this.borrowingService.getAvailableMaterials().subscribe(availableMaterials => {
+        this.materials = availableMaterials
+    })
   }
+
   // every  checked material will decremante the number of this one
   updateMaterialNumber(event, materiel) {
     materiel.checked = event.srcElement.checked;
-    if (!materiel.checked) {
-      this.materialService.resetMaterial(materiel.id, materiel);
-    }
-    if (materiel.checked) {
-      this.materialService.updateOneMaterial(materiel.id, materiel);
-    }
   }
   // showme() {
   //  return  this.borrowingService.getAvailableMaterials();

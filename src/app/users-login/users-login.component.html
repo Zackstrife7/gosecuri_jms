@@ -1,18 +1,10 @@
 
         <a href="/" class="btn btn-primary">Revenir à l'acceuil</a>  
         <div *ngFor="let material of materials" class="checkbox">
-            <div *ngIf="material.nbr_mat > 0" class="select-list">
-                <label><input type="checkbox" (change)='updateMaterialNumber($event,material)'>
+            <div class="select-list">
+                <label><input [disabled]="!material.nbAvailable" type="checkbox" (change)='updateMaterialNumber($event,material)'>
                     {{material.m_libelle}}
-                    {{material.nbr_mat}}</label>
-            </div>
-             
-            <div *ngIf="material.nbr_mat <= 0" class="checkbox">
-                <label><input type="checkbox" disabled (change)='updateMaterialNumber($event,material)'>
-                    {{material.m_libelle}}
-                    {{material.nbr_mat}}
-                </label>
-
+                    {{material.nbAvailable}}/{{material.nbr_mat}}</label>
             </div>
         </div>   
         <input type="button" class="btn btn-secondary" value="emprunter" >     

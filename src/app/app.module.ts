@@ -42,9 +42,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AngularFireDatabaseModule,
     MatInputModule,
     NgbModule,
-    NgbAlertModule,
-    HttpClientModule,
-    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

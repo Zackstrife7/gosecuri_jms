@@ -1,30 +1,18 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 import { Material } from 'src/app/model/material.model';
-import { identifierModuleUrl } from '@angular/compiler';
-import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
+import { FirestoreService } from './firestore.service';
+
 @Injectable({
   providedIn: 'root'
 })
 export class MaterialService {
 
-  private dbPath = '/materiel';
-
-  materielsRef: AngularFireList<Material> = null;
-
-  constructor(public afs: AngularFirestore, private db: AngularFireDatabase) {
-    this.materielsRef = db.list(this.dbPath);
-   }
-
-  updateOneMaterial(matID: string, mat: any): Promise<void> {
-    return this.afs.doc('materiel/' + matID).update(mat.nbr_mat -= 1);
+  constructor(public firestore: FirestoreService) {
   }
 
-  getMaterials() {
-    return this.afs.collection('materiel').snapshotChanges();
-  }
-  resetMaterial(matID: string, mat: any): Promise<void> {
-    return this.afs.doc('materiel/' + matID).update(mat.nbr_mat += 1);
+  public getMaterials(): Observable<Material[]> {
+    return this.firestore.readCollection('materiel')
   }
 
 }
