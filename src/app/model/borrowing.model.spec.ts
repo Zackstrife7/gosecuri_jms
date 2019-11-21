@@ -1,7 +1,7 @@
-import { Borrowing } from './borrowing.model';
+// import { Borrowing } from './borrowing.model';
 
-describe('Borrowing.Model', () => {
-  it('should create an instance', () => {
-    expect(new Borrowing).toBeTruthy();
-  });
-});
+// describe('Borrowing.Model', () => {
+//   it('should create an instance', () => {
+//     expect(new Borrowing).toBeTruthy();
+//   });
+// });

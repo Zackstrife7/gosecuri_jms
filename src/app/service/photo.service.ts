@@ -6,11 +6,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class PhotoService {
 
-
   constructor(private firestore: AngularFirestore) {
-
   }
-  getPhotos(){
-    return this.firestore.collection('photos').snapshotChanges();
+  getPhotos() {
+    return this.firestore.collection('photo').snapshotChanges();
   }
 }
