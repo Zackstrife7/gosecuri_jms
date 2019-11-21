@@ -1,11 +1,9 @@
-import { Component, OnInit, Input, Output, ViewChild } from '@angular/core';
-import { AppComponent } from '../app.component';
+import { Component, Input, OnInit } from '@angular/core';
 import { WebcamImage } from 'ngx-webcam';
-import { MaterialService } from 'src/app/service/material.service';
 import { Material } from 'src/app/model/material.model';
-import { ActivatedRoute, Router } from '@angular/router';
-import { map } from 'rxjs/operators';
-import { Photo } from '../model/photo.model';
+import { MaterialService } from 'src/app/service/material.service';
+import { BorrowingService } from 'src/app/service/borrowing.service';
+import { Borrowing } from '../model/borrowing.model';
 
 
 @Component({
@@ -18,30 +16,32 @@ export class UsersLoginComponent implements OnInit {
 
    @Input() webcamImage: WebcamImage;
 
+
   constructor(
-    private materialService: MaterialService,
-    private route: ActivatedRoute
+    private materialService: MaterialService, private borrowingService: BorrowingService
     ) { }
+
   ngOnInit() {
-    // this.materialService.getMaterials().subscribe(actionArray => {
-    //   this.materials = actionArray.map(item => {
-    //     return {
-    //       id: item.payload.doc.id,
-    //       ...item.payload.doc.data()
-    //     } as Material;
-    //   });
-    // });
+    this.materialService.getMaterials().subscribe(actionArray => {
+      this.materials = actionArray.map(item => ({
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        }) as Material);
+    });
+    this.borrowingService.getAvailableMaterials();
   }
   // every  checked material will decremante the number of this one
   updateMaterialNumber(event, materiel) {
     materiel.checked = event.srcElement.checked;
-
     if (!materiel.checked) {
-      this.materialService.resetMaterial(materiel.m_id, materiel);
+      this.materialService.resetMaterial(materiel.id, materiel);
     }
     if (materiel.checked) {
-      this.materialService.updateOneMaterial(materiel.m_id, materiel);
+      this.materialService.updateOneMaterial(materiel.id, materiel);
     }
   }
-
+  // showme() {
+  //  return  this.borrowingService.getAvailableMaterials();
+  // }
+  
 }

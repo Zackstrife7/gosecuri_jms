@@ -12,7 +12,7 @@ export class MaterialService {
 
   materielsRef: AngularFireList<Material> = null;
 
-  constructor(public afs: AngularFirestore,private db: AngularFireDatabase) {
+  constructor(public afs: AngularFirestore, private db: AngularFireDatabase) {
     this.materielsRef = db.list(this.dbPath);
    }
 
@@ -23,7 +23,7 @@ export class MaterialService {
   getMaterials() {
     return this.afs.collection('materiel').snapshotChanges();
   }
-  resetMaterial(matID: string, mat: any): Promise<void>{
+  resetMaterial(matID: string, mat: any): Promise<void> {
     return this.afs.doc('materiel/' + matID).update(mat.nbr_mat += 1);
   }
 

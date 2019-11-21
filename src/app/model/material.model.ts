@@ -1,5 +1,5 @@
 export class Material {
-    mId: number;
-    mLibelle: string;
-    nbrMat: number;
+    id: string;
+    m_libelle: string;
+    nbr_mat: number;
 }

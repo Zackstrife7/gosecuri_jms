@@ -1,5 +1,5 @@
 
 export class Photo {
     pId : number;
-    pBase: string;
+    filePath: string;
 }
