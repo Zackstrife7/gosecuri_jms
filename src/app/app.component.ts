@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
   // webcam snapshot trigger
   private trigger: Subject<void> = new Subject<void>();
 
+
   // function
   constructor(private photoService: PhotoService, private router: Router
   ) { }
